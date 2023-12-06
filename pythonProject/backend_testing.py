@@ -6,6 +6,9 @@ from pymysql import IntegrityError
 
 class BackendTestCase(unittest.TestCase):
 
+    """
+        backend testing: make sure that the insert/update of user is done correctly in the DB
+    """
     def test_backend(self):
 
         requests.post('http://127.0.0.1:5000/users/1', json={"user_name":"john"})
