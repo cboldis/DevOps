@@ -9,8 +9,14 @@ schema_name = 'mydb'
 
 
 def insert(name, user_id):
-    conn = pymysql.connect(host='127.0.0.1', port=3306, user='user', password='password', db=schema_name)
-    conn.autocommit(True)
+    """
+        method for adding a new user. if user id already exists, it updates the user name of the existing user
+        Params:
+          user id, user name
+        Returns:
+          0 for success
+    """
+    conn = get_db_connection()
     cursor = conn.cursor()
 
 
@@ -30,8 +36,15 @@ def insert(name, user_id):
 
 
 def update(name, user_id):
-    conn = pymysql.connect(host='127.0.0.1', port=3306, user='user', password='password', db=schema_name)
-    conn.autocommit(True)
+    """
+        method for updating the user name. if user id doesn't exist, it returns -1
+        Params:
+          user id, new user name
+        Returns:
+          0 for success
+    """
+
+    conn = get_db_connection()
     cursor = conn.cursor()
 
     try:
@@ -51,8 +64,14 @@ def update(name, user_id):
 
 
 def delete(user_id):
-    conn = pymysql.connect(host='127.0.0.1', port=3306, user='user', password='password', db=schema_name)
-    conn.autocommit(True)
+    """
+        method for deleting the user. if user id doesn't exist, it returns -1
+        Params:
+          user id
+        Returns:
+          0 for success
+    """
+    conn = get_db_connection()
     cursor = conn.cursor()
 
     try:
@@ -75,13 +94,13 @@ def delete(user_id):
 
 def get_user_name(user_id):
     """
+        method for getting the user name. if user id doesn't exist, it returns -1
         Params:
-          x and b are numbers (int or float)
+          user id
         Returns:
-          the sum of x and y.
+          user name
     """
-    conn = pymysql.connect(host='127.0.0.1', port=3306, user='user', password='password', db=schema_name)
-    conn.autocommit(True)
+    conn = get_db_connection()
     cursor = conn.cursor()
 
     try:
@@ -103,5 +122,14 @@ def get_user_name(user_id):
         conn.close()
     return name
 
+def get_db_connection():
+    """
+        method for getting the db connection
+    :return:
+        connection object
+    """
+    conn = pymysql.connect(host='127.0.0.1', port=3306, user='user', password='password', db=schema_name)
+    conn.autocommit(True)
+    return conn
 
 
