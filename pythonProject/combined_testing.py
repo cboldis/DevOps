@@ -9,8 +9,10 @@ from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
-class BackendTestCase(unittest.TestCase):
-
+class CombinedTestCase(unittest.TestCase):
+    """
+        combined testing: make sure that the insert/update of user is done correctly in the DB and that a new ID is being generated
+    """
     def test_backend(self):
 
         try:
