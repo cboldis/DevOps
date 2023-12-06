@@ -3,6 +3,9 @@ from selenium import webdriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
+"""
+    frontend testing: using test_config table to load dynamically the url of the UI API and the username , make sure that get user info returns the expected username 
+"""
 conn = pymysql.connect(host='127.0.0.1', port=3306, user='user', password='password', db='mydb')
 conn.autocommit(True)
 cursor = conn.cursor()
