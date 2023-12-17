@@ -11,12 +11,12 @@ pipeline{
         }
         stage('run backend server'){
             steps{
-                bat 'start/min python rest_app.py'
+                bat 'start/min python pythonProject/rest_app.py'
             }
         }
         stage('run frontend server'){
             steps{
-                bat 'start/min python web_app.py'
+                bat 'start/min python pythonProject/web_app.py'
             }
         }
 
