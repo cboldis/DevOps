@@ -6,7 +6,7 @@ pipeline{
                 script{
                     properties([pipelineTriggers([pollSCM('* * * * *')])])
                 }
-                git 'https://github.com/cboldis/DevOps.git'
+                git branch: 'main', url: 'https://github.com/cboldis/DevOps.git'
             }
         }
         stage('run backend server'){
