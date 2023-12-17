@@ -11,14 +11,33 @@ pipeline{
         }
         stage('run backend server'){
             steps{
-                bat 'python pythonProject/rest_app.py'
+                bat 'start/min python rest_app.py'
             }
         }
         stage('run frontend server'){
             steps{
-                bat 'python pythonProject/web_app.py'
+                bat 'start/min python web_app.py'
             }
         }
-
+        stage('run backend testing'){
+            steps{
+                bat 'start/min python pythonProject/backend_testing.py'
+            }
+        }
+        stage('run frontend testing'){
+            steps{
+                bat 'start/min python pythonProject/frontend_testing.py'
+            }
+        }
+        stage('run combined testing'){
+            steps{
+                bat 'start/min python pythonProject/combined_testing.py'
+            }
+        }
+        stage('run clean environment'){
+            steps{
+                bat 'start/min python pythonProject/clean_environment.py'
+            }
+        }
     }
 }
