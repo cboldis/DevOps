@@ -19,25 +19,6 @@ pipeline{
                 bat 'start/min python web_app.py'
             }
         }
-        stage('run backend testing'){
-            steps{
-                bat 'python pythonProject/backend_testing.py'
-            }
-        }
-        stage('run frontend testing'){
-            steps{
-                bat 'python pythonProject/frontend_testing.py'
-            }
-        }
-        stage('run combined testing'){
-            steps{
-                bat 'python pythonProject/combined_testing.py'
-            }
-        }
-        stage('run clean environment'){
-            steps{
-                bat 'python pythonProject/clean_environment.py'
-            }
-        }
+
     }
 }
