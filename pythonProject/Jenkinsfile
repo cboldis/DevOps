@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+    stages{
+        stage('checkout'){
+            steps{
+                script{
+                    properties([pipelineTriggers([pollSCM(* * * * *)])])
+                }
+                git 'https://github.com/cboldis/DevOps.git'
+            }
+        }
+        stage('run backend server'){
+            steps{
+                bat 'start/min python rest_app.py'
+            }
+        }
+    }
+}
