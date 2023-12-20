@@ -22,6 +22,14 @@ pipeline{
                 }
             }
         }
+        stage('Install requests') {
+            steps {
+                script {
+                    // Install the pymysql package in the virtual environment
+                    bat 'pip install requests'
+                }
+            }
+        }
         stage('checkout'){
             steps{
                 script{
