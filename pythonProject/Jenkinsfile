@@ -46,6 +46,14 @@ pipeline{
                 }
             }
         }
+        stage('Install cryptography') {
+            steps {
+                script {
+                    // Install the pymysql package in the virtual environment
+                    bat 'pip install cryptography --user'
+                }
+            }
+        }
         stage('checkout'){
             steps{
                 script{
