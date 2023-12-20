@@ -9,7 +9,7 @@ pipeline{
                     bat 'venv/Scripts/activate'
 
                     // Upgrade pip in the virtual environment
-                    bat 'pip install --upgrade pip'
+                    bat 'pip install --upgrade pip --user'
                 }
             }
         }
