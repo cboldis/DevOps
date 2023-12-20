@@ -30,6 +30,14 @@ pipeline{
                 }
             }
         }
+        stage('Install flask') {
+            steps {
+                script {
+                    // Install the pymysql package in the virtual environment
+                    bat 'pip install flask --user'
+                }
+            }
+        }
         stage('checkout'){
             steps{
                 script{
