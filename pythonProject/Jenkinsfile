@@ -1,6 +1,27 @@
 pipeline{
     agent any
     stages{
+        stage('Initialize Virtual Environment') {
+            steps {
+                script {
+                    // Create and activate the virtual environment
+                    bat 'python3 -m venv venv'
+                    bat 'source venv/bin/activate'
+
+                    // Upgrade pip in the virtual environment
+                    bat 'pip install --upgrade pip'
+                }
+            }
+        }
+
+        stage('Install pymysql') {
+            steps {
+                script {
+                    // Install the pymysql package in the virtual environment
+                    bat 'pip install pymysql'
+                }
+            }
+        }
         stage('checkout'){
             steps{
                 script{
