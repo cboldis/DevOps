@@ -54,6 +54,14 @@ pipeline{
                 }
             }
         }
+        stage('Install selenium') {
+            steps {
+                script {
+                    // Install the pymysql package in the virtual environment
+                    bat 'pip install selenium --user'
+                }
+            }
+        }
         stage('checkout'){
             steps{
                 script{
