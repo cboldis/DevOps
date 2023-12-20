@@ -6,7 +6,7 @@ pipeline{
                 script {
                     // Create and activate the virtual environment
                     bat 'python -m venv venv'
-                    bat 'venv\Scripts\activate'
+                    bat 'venv/Scripts/activate'
 
                     // Upgrade pip in the virtual environment
                     bat 'pip install --upgrade pip'
